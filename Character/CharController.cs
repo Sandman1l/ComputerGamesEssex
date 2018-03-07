@@ -30,13 +30,21 @@ public class CharController : MonoBehaviour {
 	private GameObject movManager;
 	// Use this for initialization
 	void Start () {
-
+		
 		movManager = GameObject.FindGameObjectWithTag ("MoveController");
-		vtPosMov = new List<Vector2>(movManager.GetComponent<MovController>().UpdateGrid(transform.position,mov));
+		StartCoroutine (LateStart ());
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+
+	IEnumerator LateStart(){
+		yield return new WaitForSeconds (1);
+		vtPosMov = new List<Vector2>(movManager.GetComponent<MovController>().UpdateGrid(transform.position,mov));
+	}
+
 }
