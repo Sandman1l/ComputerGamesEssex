@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Input cs file
 public class SelectController : MonoBehaviour {
     public AnimationCurve ac;
     public Vector3 curPos;
-    Transform originTransform;    
+    Transform originTransform;
     Vector3 targetPos;
     Vector3 offset;
     bool isMoving;
@@ -18,7 +18,7 @@ public class SelectController : MonoBehaviour {
         curState = state.idle;
         offset = new Vector3(0.5f, 0.5f, 0);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         if (isMoving == false)
@@ -47,28 +47,28 @@ public class SelectController : MonoBehaviour {
     }
     void moveLeft()
     {
-         
+
          targetPos = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         isMoving = true;
-        StartCoroutine(SquareMove());       
+        StartCoroutine(SquareMove());
     }
     void moveRight()
     {
-       
+
         targetPos = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
         isMoving = true;
         StartCoroutine(SquareMove());
     }
     void moveUp()
     {
-       
+
         targetPos = new Vector3(transform.position.x , transform.position.y+1, transform.position.z);
         isMoving = true;
         StartCoroutine(SquareMove());
     }
     void moveDown()
     {
-        
+
         targetPos = new Vector3(transform.position.x, transform.position.y-1, transform.position.z);
         isMoving = true;
         StartCoroutine(SquareMove());
@@ -90,8 +90,11 @@ public class SelectController : MonoBehaviour {
         {
 
                 print(collision.gameObject.name);
-            
+
         }
     }
+
+    // -MARK: move functions
+    /*Keep the move functions down here*/
 
 }
