@@ -14,12 +14,6 @@ public class MovController : MonoBehaviour
 	{
 		GM = GameObject.FindGameObjectWithTag ("GameMaster");
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-	}
 
 	public List<Vector2> UpdateGrid (Vector2 target, int mov, bool player)
 	{
@@ -31,7 +25,7 @@ public class MovController : MonoBehaviour
 
 		return movements;
 	}
-		
+
 
 	// MARK : Utility
 
@@ -173,4 +167,3 @@ public class MovController : MonoBehaviour
 	}
 
 }
-	
