@@ -24,6 +24,7 @@ public class CharController : MonoBehaviour {
 	//Level, the level of a character, at this stage is just for show.
 	public int level;
 
+	public bool player;
 	//Vector2 Posible Movements are in accordance to the mov variable and the MovementController deals with this. 
 	public List<Vector2> vtPosMov;
 	//This is escenetially the gameobject that holds our movController
@@ -44,7 +45,7 @@ public class CharController : MonoBehaviour {
 
 	IEnumerator LateStart(){
 		yield return new WaitForSeconds (1);
-		vtPosMov = new List<Vector2>(movManager.GetComponent<MovController>().UpdateGrid(transform.position,mov));
+		vtPosMov = new List<Vector2>(movManager.GetComponent<MovController>().UpdateGrid(transform.position,mov,player));
 	}
 
 }
