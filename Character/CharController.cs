@@ -17,7 +17,7 @@ public class CharController : MonoBehaviour {
 	public int Res;
 	//Defence, it tells us how much damage is taken out when dealing with physical attacks.
 	public int def;
-	//Skill, it measous how good a character will be on the hit probability as a bonus. 
+	//Skill, it measous how good a character will be on the hit probability as a bonus.
 	public int skill;
 	//Movement, how much a character is able to move in the game world.
 	public int mov;
@@ -25,27 +25,33 @@ public class CharController : MonoBehaviour {
 	public int level;
 
 	public bool player;
-	//Vector2 Posible Movements are in accordance to the mov variable and the MovementController deals with this. 
+	//Vector2 Posible Movements are in accordance to the mov variable and the MovementController deals with this.
 	public List<Vector2> vtPosMov;
 	//This is escenetially the gameobject that holds our movController
 	private GameObject movManager;
+	private GameObject atkManager;
+	public List<Vector2> vtPosAtk;
+	public List<Vector2> vtActAtk;
 	// Use this for initialization
 	void Start () {
-		
-		movManager = GameObject.FindGameObjectWithTag ("MoveController");
-		StartCoroutine (LateStart ());
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
+	}
+	public void initPlEne(){
+		movManager = GameObject.FindGameObjectWithTag ("MoveController");
+		atkManager = GameObject.FindGameObjectWithTag ("CombatManager");
+		vtPosMov = new List<Vector2>(movManager.GetComponent<MovController>().UpdateGrid(transform.position,mov,player));
+		vtPosAtk = new List<Vector2>(atkManager.GetComponent<CombatManager>().UpdateGrid(vtPosMov));
 	}
 
 
 	IEnumerator LateStart(){
 		yield return new WaitForSeconds (1);
-		vtPosMov = new List<Vector2>(movManager.GetComponent<MovController>().UpdateGrid(transform.position,mov,player));
+
 	}
 
 }
