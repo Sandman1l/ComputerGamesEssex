@@ -40,7 +40,7 @@ public class GameMaster : MonoBehaviour
 		List<GameObject> enem = new List<GameObject> (GameObject.FindGameObjectsWithTag ("Enemy"));
 		foreach (GameObject pieze in enem) 
 		{
-			obstacles.Add(pieze.GetComponent<Transform>().position);
+			enemies.Add(pieze.GetComponent<Transform>().position);
 		}
 		//for actual tag == obstacle
 		/*List<GameObject> enem = new List<GameObject> (GameObject.FindGameObjectsWithTag ("Enemy"));
